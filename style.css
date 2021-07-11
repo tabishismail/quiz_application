@@ -1,0 +1,93 @@
+.container-fluid{
+    background-image: url(images/5.jpg);
+    background-repeat: repeat;
+    
+    /* background-size: cover; */
+    /* height:1000px; */
+    /* padding: 10%; */
+    padding-top:14%;
+    padding-bottom:15%;
+    
+   }
+body{
+    font-size: 18px;
+  font-family: "Vibur", sans-serif;
+}
+.quiz{
+    display: flexbox;
+    justify-content: center;
+    /* width: 80%; */
+    margin: 0 auto;
+    padding: 0 auto;
+    /* flex-direction: column;
+    align-content:center; */
+}
+.neon{
+    margin-bottom: 20px ;
+    color: #fff;
+    font-size: 90px;
+    text-align: center;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 82px #0fa,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+}
+.form{
+    display: flexbox;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+    padding: auto;
+}
+.user{
+    display: flex;
+    justify-content: space-between;
+    /* align-content: space-around; */
+    width: 50%;
+    margin: 5px auto;
+    flex-wrap: wrap;
+}
+.userData{
+    color: white;
+    font-weight: 500;
+    font-size: large;
+    width: 30%;
+  
+}
+.input{
+padding: 5px;
+width: 70%;
+}
+.btn{
+    width: 25%;
+    margin: 5px;
+}
+
+@media screen and (max-width: 640px) {
+    .user{
+        width: 100%;
+    
+    }
+    .userData{
+        width: 100%;
+    }   
+    .input{
+        padding: 5px;
+        width: 100%;
+    }
+    .btn{
+            width: 25%;
+
+    }
+}
+@media screen and (max-width: 360px) {
+    .btn{
+            width: 50%;
+
+    }
+}
