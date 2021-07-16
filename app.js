@@ -9,7 +9,7 @@ if (saveUsers) {
 } else {
     allUser = [];
 }
-let store = () => {
+function store () {
     let fnSignUp = document.getElementById("fnSignUp");
     let emailSignUp = document.getElementById("emailSignUp");
     let userSignUp = document.getElementById("userSignUp");
