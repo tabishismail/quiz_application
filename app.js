@@ -24,18 +24,19 @@ let store =()=>{
     }
     for(var i=0 ;i < allUser.length; i++ ){
         if(emailSignUp.value===allUser[i].email ){
-            alert("This email already exist");            
+            alert("This email already exist");
+                     
         }
         else if(userSignUp.value ===allUser[i].username){
             alert("This User Name already exist");
+            
         }
         else{
-           auth = true; 
+            allUser.push(storeUser);
+            localStorage.setItem('allUser',JSON.stringify(allUser));
         }
     }
-    if(auth){
-        allUser.push(storeUser);
-        localStorage.setItem('allUser',JSON.stringify(allUser));
-        window.location="index.html"
-    }
+    // if(auth=== true){
+        // window.location="index.html"
+    //  }
 }
