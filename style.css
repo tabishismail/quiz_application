@@ -1,13 +1,15 @@
 .container-fluid{
-    background-image: url(images/5.jpg);
-    background-repeat: repeat;
-    padding-top:5px;
-    padding-bottom:15%;
-    
-   }
+  padding-top:5px;
+  /* padding-bottom:15%; */
+  /* height: 100%; */
+  
+}
 body{
-    font-size: 18px;
+  font-size: 18px;
+  background-image: url(images/5.jpg);
+  background-repeat: repeat;
   font-family: "Vibur", sans-serif;
+  /* height: 100%; */
 }
 .quiz{
     display: flexbox;
