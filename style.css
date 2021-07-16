@@ -1,11 +1,7 @@
 .container-fluid{
     background-image: url(images/5.jpg);
     background-repeat: repeat;
-    
-    /* background-size: cover; */
-    /* height:1000px; */
-    /* padding: 10%; */
-    padding-top:14%;
+    padding-top:5px;
     padding-bottom:15%;
     
    }
@@ -16,11 +12,8 @@ body{
 .quiz{
     display: flexbox;
     justify-content: center;
-    /* width: 80%; */
     margin: 0 auto;
     padding: 0 auto;
-    /* flex-direction: column;
-    align-content:center; */
 }
 .neon{
     margin-bottom: 20px ;
@@ -36,6 +29,45 @@ body{
         0 0 92px #0fa,
         0 0 102px #0fa,
         0 0 151px #0fa;
+        animation: flicker 1.5s infinite alternate;
+}
+.neon1{
+  margin-bottom: 10px ;
+  color: #fff;
+  font-size: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+      animation: flicker 1.5s infinite alternate;
+}
+/* Flickering animation */
+@keyframes flicker {
+    
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #0fa,
+      0 0 80px #0fa,
+      0 0 90px #0fa,
+      0 0 100px #0fa,
+      0 0 150px #0fa;
+  
+  }
+  
+  20%, 24%, 55% {        
+      text-shadow: none;
+  }    
 }
 .form{
     display: flexbox;
@@ -47,7 +79,6 @@ body{
 .user{
     display: flex;
     justify-content: space-between;
-    /* align-content: space-around; */
     width: 50%;
     margin: 5px auto;
     flex-wrap: wrap;
@@ -55,13 +86,25 @@ body{
 .userData{
     color: white;
     font-weight: 500;
-    font-size: large;
-    width: 30%;
+    font-size: 20px;
+    /* width: 20%; */
   
 }
-.input{
-padding: 5px;
-width: 70%;
+
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 0px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
 }
 .btn{
     width: 25%;
@@ -85,6 +128,15 @@ width: 70%;
 
     }
 }
+@media screen and (max-width: 500px) {
+  .neon{
+     font-size: 50px;
+    
+}
+.neon1{
+  font-size: 30px;
+}
+}
 @media screen and (max-width: 360px) {
     .btn{
             width: 50%;
@@ -92,23 +144,8 @@ width: 70%;
     }
 }
 
-/* Full-width input fields */
-input[type=text], input[type=password],input[type=email] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-  }
   
-  /* Add a background color when the inputs get focus */
-  input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-  
-  /* Set a style for all buttons */
+  /* Set a style for all buttons
   button {
     background-color: #04AA6D;
     color: white;
@@ -136,65 +173,4 @@ input[type=text], input[type=password],input[type=email] {
     width: 50%;
   }
   
-  /* Add padding to container elements */
-  .container {
-    padding: 16px;
-  }
   
-  /* The Modal (background) */
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    /* background-color: #474e5d; */
-    padding-top: 50px;
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* Style the horizontal ruler */
-  hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-  }
-   
-  /* The Close Button (x) */
-  .close {
-    position: absolute;
-    right: 35px;
-    top: 15px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #f1f1f1;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #f44336;
-    cursor: pointer;
-  }
-  
-  /* Clear floats */
-  .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  
-  /* Change styles for cancel button and signup button on extra small screens */
-  @media screen and (max-width: 300px) {
-    .cancelbtn, .signupbtn {
-       width: 100%;
-    }
-  }

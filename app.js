@@ -1,36 +1,41 @@
-// Constructor function to create user objects
-function Meow(name, email, username, password) {
-    this.name = name,
-    this.email = email,
-    this.username = username,
-    this.password = password
+
+let signUp = () =>{
+    window.location = 'signup.html'
 }
-// Getting the name of the page
-var pageURL = window.location.toString();
-var pageName = pageURL.slice(pageURL.lastIndexOf("/"));
 
-
-function store() {
-    var arrOfUserObjs=[{}];
-    localStorage.setItem("arrOfUserObjs",JSON.stringify(arrOfUserObjs));
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var username = document.getElementById("userName").value;
-    var password = document.getElementById("psw").value;
-    var user1= new Meow(name, email, username, password);
-    arrOfUserObjs = JSON.parse(localStorage.getItem("arrOfUserObjs"));
-    arrOfUserObjs.push(user1);
-    localStorage.setItem("arrOfUserObjs", JSON.stringify(arrOfUserObjs));
-    // window.location = "login.html";
+let allUser=[];
+let saveUsers = localStorage.getItem('allUser');
+if(saveUsers){
+    allUser=JSON.parse(saveUsers);
+}else{
+    allUser = [];
 }
-    // localStorage.setItem('user', JSON.stringify(user))
-
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+let auth=false;
+let store =()=>{
+    let fnSignUp=document.getElementById("fnSignUp");
+    let emailSignUp=document.getElementById("emailSignUp");
+    let userSignUp=document.getElementById("userSignUp");
+    let pswSignUp=document.getElementById("pswSignUp");
+    let storeUser={
+        fullname:fnSignUp.value,
+        email:emailSignUp.value,
+        username:userSignUp.value,
+        password:pswSignUp.value
+    }
+    for(var i=0 ;i < allUser.length; i++ ){
+        if(emailSignUp.value===allUser[i].email ){
+            alert("This email already exist");            
+        }
+        else if(userSignUp.value ===allUser[i].username){
+            alert("This User Name already exist");
+        }
+        else{
+           auth = true; 
+        }
+    }
+    if(auth){
+        allUser.push(storeUser);
+        localStorage.setItem('allUser',JSON.stringify(allUser));
+        window.location="index.html"
     }
 }
