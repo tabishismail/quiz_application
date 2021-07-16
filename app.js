@@ -32,6 +32,17 @@ function store () {
         // console.log(allUser)
         allUser.push(storeUser);
         localStorage.setItem('allUser', JSON.stringify(allUser));
-        window.location='index.html';
+        window.location='/index.html'
+    }
+}
+function login(){
+    for(let i=0; i<allUser.length;i++){
+        if(user===allUser[i].username){
+            if(password===allUser[i].password){
+                alert("Login Sucess")
+                window.location='login.html'
+            }
+            
+        }
     }
 }
