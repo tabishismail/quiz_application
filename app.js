@@ -24,19 +24,16 @@ let store =()=>{
     }
     for(var i=0 ;i < allUser.length; i++ ){
         if(emailSignUp.value===allUser[i].email ){
-            alert("This email already exist");
-                     
+            alert("This email already exist");          
         }
         else if(userSignUp.value ===allUser[i].username){
-            alert("This User Name already exist");
-            
+            alert("This User Name already exist");       
         }
         else{
             allUser.push(storeUser);
             localStorage.setItem('allUser',JSON.stringify(allUser));
+            window.location="index.html"
         }
+        break
     }
-    // if(auth=== true){
-        // window.location="index.html"
-    //  }
 }
