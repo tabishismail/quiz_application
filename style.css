@@ -136,6 +136,30 @@ input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
   font-size: 30px;
   text-align: left;
 }
+.quiz-main-head{
+  margin: ;
+}
+
+@media screen and (max-width: 1000px) {
+  .profilePic{
+    width: 100%;
+  }
+  .pro-btn{
+    width: 100%;
+  }
+}
+@media screen and (max-width:750px){
+  .pro-main-head{
+    font-size: 50px; 
+  }
+  .pro-head{
+    font-size: 30px;
+  }
+  .pro-btn{
+    width: 100%;
+  }
+
+}
 
 @media screen and (max-width: 640px) {
     .user{
@@ -153,6 +177,9 @@ input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
             width: 25%;
 
     }
+    .pro-btn{
+      width: 100%;
+    }
 }
 @media screen and (max-width: 500px) {
   .neon{
@@ -162,11 +189,35 @@ input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
 .neon1{
   font-size: 30px;
 }
+.result-head{
+  font-size: 25px;
+  text-align: center;
+}
+.pro-head{
+  font-size: 25px;
+  margin-bottom: 10%;
+}
+.pro-main-head{
+  font-size: 40px; 
+}
 }
 @media screen and (max-width: 360px) {
     .btn{
             width: 50%;
 
+    }
+    .pro-btn{
+      width: 100%;
+    }
+    .result-head{
+      font-size: 20px;
+    }
+    .pro-head{
+      font-size: 20px;
+
+    }
+    .pro-main-head{
+      font-size: 30px; 
     }
 }
 
