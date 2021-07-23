@@ -120,7 +120,22 @@ input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
 #userProfile{
   color: white;
 }
-
+.profilePic{
+  width: 180px;
+}
+.pro-btn{
+  width: 70%;
+}
+.pro-head{
+  font-size: 40px;
+  margin: 0 auto;
+}
+.result-head{
+  padding: 0px ;
+  margin: 0px !important;
+  font-size: 30px;
+  text-align: left;
+}
 
 @media screen and (max-width: 640px) {
     .user{

@@ -14,10 +14,36 @@
 <body onload="getUser()">
     <div class="container">
         <div class="welcome">
-            <h1>Hello <span id="userProfile">User Profile</span></h1>
-            <p>This is your profile page. You can see your quiz result here</p>
+            <h1 class="neon">QUIZ GAME</h1>
+            <h3 class="neon pro-head">Hello <span id="userProfile">User Profile</span></h3>
+            <div class="row">
+                <div class="col-3">
+                    <div>
+                        <img class="profilePic" src="images/profile.jpg" alt="">                
+                        <button class="btn btn-outline-primary pro-btn">Edit Profile</button>
+                        <button class="btn btn-outline-primary pro-btn" onclick="start()">Start Game</button>
+                        <button class="btn btn-outline-primary pro-btn">Log Out</button>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="row">
+                        <div class="col-12">
+                            <p>First Name</p>
+                            <p>Last Name</p>
+                            <p>Date of Birth</p>
+                            <p>User Name</p>
+                            <p>Password</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="neon result-head">Recent Results</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <button class="btn btn-outline-primary">Start Quiz</button>
 
 
     </div>

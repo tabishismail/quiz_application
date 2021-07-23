@@ -66,3 +66,6 @@ let getUser = () => {
     var newUser = localStorage.getItem("userData");
     userProfile.innerHTML = JSON.parse(newUser).user.toUpperCase();
 }
+let start =()=>{
+    window.location='quiz.html'
+}
