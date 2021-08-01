@@ -104,8 +104,8 @@ let store = () => {
     var emailc = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     var userc = /^[a-z0-9_-]{3,16}$/;
     var numc = /^((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$/;
-    // var passc=/^.*$/i;
-    var passc = /^(?=.*\d)(?=.*[a-z])[\w~@#$%^&*+=`|{}:;!.?\"()\[\]-]{6,8}$/;
+    var passc=/^.*$/i;
+    // var passc = /^((?=\S*?[a-zA-Z])(?=\S*?[0-9]).{6,})\S$/;
 
     let storeUser = {
         fullname: fnSignUp.value,
@@ -122,7 +122,7 @@ let store = () => {
                         flag = true;
                     }
                 }
-
+                
                 if (flag) {
                     alert("This Email is already registerd")
                 } else {
@@ -133,6 +133,7 @@ let store = () => {
             }
             else {
                 alert("pass check")
+                console.log(pswSignUp.value)
             }
         } else {
             alert("check email")
@@ -143,45 +144,18 @@ let store = () => {
         alert("check username")
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // for (var i = 0; i < allUser.length; i++) {
-    //     if (emailSignUp.value === allUser[i].email || userSignUp.value === allUser[i].username) {
-    //         flag = true
-    //     }
-    // }
-    // if (flag) {
-    //     alert("This is already exist");
-    // } else {
-    // console.log(allUser)
-    //     allUser.push(storeUser);
-    //     localStorage.setItem('allUser', JSON.stringify(allUser));
-    //     window.location = 'index.html'
-    // }
 }
 
 var userProfile = document.getElementById("userProfile");
 let login = () => {
-    let flag = true;
+    let flag = false;
     for (let i = 0; i < allUser.length; i++) {
-        if (user.value === allUser[i].username) {
+        if (user.value === allUser[i].username || user.value === allUser[i].email) {
             if (password.value === allUser[i].password) {
                 alert("Login Sucess")
                 window.location = 'profile.html'
                 var userData = {
-                    user: user.value
+                    user: allUser[i].fullname
                 }
                 localStorage.setItem("userData", JSON.stringify(userData))
             }
@@ -190,7 +164,7 @@ let login = () => {
             }
         }
         else {
-            flag = false;
+            flag = true;
         }
     }
     if (flag) {
