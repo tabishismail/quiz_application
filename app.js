@@ -128,19 +128,31 @@ let store = () => {
                 }
 
                 if (flag) {
-                    alert("This Email is already registerd")
+                    // alert("This Email is already registerd")
+                    swal("This Email is already registerd", "", "warning");
                 } else {
                     allUser.push(storeUser);
                     localStorage.setItem('allUser', JSON.stringify(allUser));
-                    window.location = 'index.html'
+                    swal({
+                        title: "Successfully Sign Up",
+                        // text: "Welcome " + allUser[i].firstname,
+                        icon: "success",
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Ok'
+                    }).then((result) => {
+                        if (result) {
+                            window.location = 'index.html'
+                        }
+                    })
+                    // window.location = 'index.html'
                 }
             }
             else {
-                alert("pass check")
-                console.log(pswSignUp.value)
+                swal("Check Password", "", "warning");
             }
         } else {
-            alert("check email")
+            // alert("check email")
+            swal("Enter Correct Email Address", "", "warning");
         }
 
     }
@@ -149,18 +161,28 @@ let store = () => {
 
     }
 }
-
+let back=()=>{
+    window.location="index.html"
+}
 
 var userProfile = document.getElementById("userProfile");
 let login = () => {
-    let flag = false;
+    let flag = true;
     for (let i = 0; i < allUser.length; i++) {
         if (user.value === allUser[i].username || user.value === allUser[i].email) {
             if (password.value === allUser[i].password) {
-                // alert("Login Sucess")
-                swal("Login Sucess!", "Welcome " + allUser[i].firstname, "success")
-                window.location = 'profile.html'
-
+                swal({
+                    title: "Login Success",
+                    text: "Welcome " + allUser[i].firstname,
+                    icon: "success",
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result) {
+                        window.location = 'profile.html'
+                    }
+                })
+                flag = false;
                 var userData = {
                     fullname: allUser[i].firstname + " " + allUser[i].lastname,
                     firstName: allUser[i].firstname,
@@ -176,9 +198,6 @@ let login = () => {
             else {
                 alert("You have enter wrong password")
             }
-        }
-        else {
-            flag = true;
         }
     }
     if (flag) {
@@ -202,8 +221,26 @@ let start = () => {
     window.location = 'topic.html'
 }
 let logout = () => {
-    localStorage.removeItem("userData");
-    window.location = 'index.html'
+    swal({
+        title: "Logout Success",
+        text: "Thanks " + firstName.innerHTML,
+        icon:"success",
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Ok'
+      }).then((result) => {
+        if (result) {
+            localStorage.removeItem("userData");
+            window.location = 'index.html'
+        }
+      })
+
+
+
+
+
+
+
+
 }
 // Topics Functions
 let micro = () => window.location = 'micro.html'
