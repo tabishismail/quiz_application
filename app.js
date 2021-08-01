@@ -97,6 +97,8 @@ if (saveUsers) {
 }
 let store = () => {
     let fnSignUp = document.getElementById("fnSignUp");
+    let lnSignUp = document.getElementById("lnSignUp");
+    let doB = document.getElementById("doB");
     let emailSignUp = document.getElementById("emailSignUp");
     let userSignUp = document.getElementById("userSignUp");
     let pswSignUp = document.getElementById("pswSignUp");
@@ -104,11 +106,13 @@ let store = () => {
     var emailc = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     var userc = /^[a-z0-9_-]{3,16}$/;
     var numc = /^((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$/;
-    var passc=/^.*$/i;
+    var passc = /^.*$/i;
     // var passc = /^((?=\S*?[a-zA-Z])(?=\S*?[0-9]).{6,})\S$/;
 
     let storeUser = {
-        fullname: fnSignUp.value,
+        firstname: fnSignUp.value,
+        lastname: lnSignUp.value,
+        dob: doB.value,
         email: emailSignUp.value,
         username: userSignUp.value,
         password: pswSignUp.value
@@ -122,7 +126,7 @@ let store = () => {
                         flag = true;
                     }
                 }
-                
+
                 if (flag) {
                     alert("This Email is already registerd")
                 } else {
@@ -146,16 +150,26 @@ let store = () => {
     }
 }
 
+
 var userProfile = document.getElementById("userProfile");
 let login = () => {
     let flag = false;
     for (let i = 0; i < allUser.length; i++) {
         if (user.value === allUser[i].username || user.value === allUser[i].email) {
             if (password.value === allUser[i].password) {
-                alert("Login Sucess")
+                // alert("Login Sucess")
+                swal("Login Sucess!", "Welcome " + allUser[i].firstname, "success")
                 window.location = 'profile.html'
+
                 var userData = {
-                    user: allUser[i].fullname
+                    fullname: allUser[i].firstname + " " + allUser[i].lastname,
+                    firstName: allUser[i].firstname,
+                    lastName: allUser[i].lastname,
+                    email: allUser[i].email,
+                    doB: allUser[i].doB,
+                    username: allUser[i].username,
+                    password: allUser[i].password
+
                 }
                 localStorage.setItem("userData", JSON.stringify(userData))
             }
@@ -171,12 +185,25 @@ let login = () => {
         alert("you have enter wrong user name or Email Address")
     }
 }
+let firstName = document.getElementById("pFirstName");
+let lastName = document.getElementById("pLastName");
+let doB = document.getElementById("pDoB");
 let getUser = () => {
     var newUser = localStorage.getItem("userData");
-    userProfile.innerHTML = JSON.parse(newUser).user.toUpperCase();
+    userProfile.innerHTML = JSON.parse(newUser).fullname.toUpperCase();
+    firstName.innerHTML = JSON.parse(newUser).firstName;
+    lastName.innerHTML = JSON.parse(newUser).lastName;
+    let date = JSON.parse(newUser).doB;
+    console.log(date)
+    doB.innerHTML = new Date(date)
+
 }
 let start = () => {
     window.location = 'topic.html'
+}
+let logout = () => {
+    localStorage.removeItem("userData");
+    window.location = 'index.html'
 }
 // Topics Functions
 let micro = () => window.location = 'micro.html'
